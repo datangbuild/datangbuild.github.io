@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大唐日盛建筑装饰工程有限公司 - 官方网站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .serif {
+            font-family: 'Noto Serif SC', serif;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #C026D3;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('pics/bg.jpeg?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #C026D3;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .project-scroll-container::-webkit-scrollbar { display: none; }
+        .project-scroll-container { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .page-fade {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+        }
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .slider-slide {
+            min-width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-gray-800">
+
+    <!-- 导航栏 -->
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="showPage('home-page')">
+                <div class="w-10 h-10 bg-purple-700 rounded-full flex items-center justify-center text-white font-bold text-xl">唐</div>
+                <div class="leading-tight">
+                    <h1 class="text-xl font-bold tracking-wider text-purple-900">北京大唐日盛建筑装饰工程有限公司</h1>
+                    <p class="text-xs text-gray-500 uppercase italic">Datang Risheng Architectural Decoration Engineering Co., Ltd.</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <span onclick="showPage('home-page')" class="nav-link hover:text-purple-700">首页</span>
+                <span onclick="showPage('home-page', 'about')" class="nav-link hover:text-purple-700">走进大唐</span>
+                <span onclick="showPage('home-page', 'projects')" class="nav-link hover:text-purple-700">项目案例</span>
+                <span onclick="showPage('home-page', 'partners')" class="nav-link hover:text-purple-700">合作企业</span>
+                <span onclick="showPage('home-page', 'contact')" class="nav-link hover:text-purple-700">联系我们</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        
+        <!-- [页面1] 首页 -->
+        <div id="home-page" class="page-content">
+            <!-- Banner -->
+            <section id="home" class="hero-bg h-[65vh] flex items-center justify-center text-white text-center px-4">
+                <div class="max-w-4xl page-fade">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6 serif tracking-widest">筑精品工程 创盛世辉煌</h2>
+                    <p class="text-lg opacity-90 mb-8">匠心装饰 · 品质生活 · 艺术空间</p>
+                    <button onclick="scrollToId('projects')" class="bg-purple-700 hover:bg-purple-800 text-white px-8 py-3 rounded-full transition shadow-lg">浏览案例</button>
+                </div>
+            </section>
+
+            <!-- 走进大唐 -->
+            <section id="about" class="py-24 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="flex flex-col md:flex-row items-center gap-16">
+                        <div class="md:w-1/2">
+                            <h3 class="text-3xl font-bold mb-6 section-title serif">走进大唐日盛</h3>
+                            <p class="text-gray-600 leading-loose mb-6">
+                                大唐日盛建筑装饰工程有限公司成立于2009年，是一家集建筑装饰、钢结构、防水保温、特种工程、结构加固、园林绿化、展览展示、环保工程服务于一体的专业化装饰企业。公司深耕行业多年，凭借卓越的设计理念和精湛的施工工艺，在高端办公空间、精品酒店、文化教育设施及商业空间等领域树立了诸多标杆工程。
+                            </p>
+                            <p class="text-gray-600 leading-loose mb-8">
+                                我们始终坚持“日以继夜，盛于匠心”的服务理念，致力于为每一位客户打造兼具实用功能与高品质体验的空间。
+                            </p>
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div class="bg-stone-50 p-4 rounded-lg">
+                                    <p class="text-3xl font-bold text-purple-700">16年</p>
+                                    <p class="text-sm text-gray-500">行业经验</p>
+                                </div>
+                                <div class="bg-stone-50 p-4 rounded-lg">
+                                    <p class="text-3xl font-bold text-purple-700">50+</p>
+                                    <p class="text-sm text-gray-500">精品案例</p>
+                                </div>
+                                <div class="bg-stone-50 p-4 rounded-lg">
+                                    <p class="text-3xl font-bold text-purple-700">100+</p>
+                                    <p class="text-sm text-gray-500">专业团队</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 relative">
+                            <img src="pics/intro.jpeg?auto=format&fit=crop&q=80&w=800" alt="公司办公环境" class="rounded-lg shadow-2xl">
+                          <!--   <div class="absolute -bottom-6 -left-6 bg-purple-700 p-6 rounded shadow-xl hidden lg:block">
+                                <p class="text-white text-lg font-bold">装饰行业AAA级单位</p>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 企业文化 -->
+            <section id="culture" class="py-24 bg-stone-50 relative overflow-hidden">
+                <div class="container mx-auto px-6 text-center">
+                    <h3 class="text-3xl font-bold mb-16 section-title serif text-gray-900">企业文化</h3>
+                    <div class="grid md:grid-cols-4 gap-8">
+                        <div class="p-8 bg-white border border-stone-100 rounded-lg hover:bg-purple-50 transition-all hover:-translate-y-2 duration-300">
+                            <div class="text-4xl mb-4 text-purple-700 font-serif">誠</div>
+                            <h4 class="text-xl font-bold mb-2">诚信为本</h4>
+                            <p class="text-sm text-gray-500">人无信不立，业无信不兴。我们坚持以诚待客，用信誉筑基。</p>
+                        </div>
+                        <div class="p-8 bg-white border border-stone-100 rounded-lg hover:bg-purple-50 transition-all hover:-translate-y-2 duration-300">
+                            <div class="text-4xl mb-4 text-purple-700 font-serif">匠</div>
+                            <h4 class="text-xl font-bold mb-2">匠心精工</h4>
+                            <p class="text-sm text-gray-500">细节见真章。我们秉持工匠精神，对每一处工艺精益求精。</p>
+                        </div>
+                        <div class="p-8 bg-white border border-stone-100 rounded-lg hover:bg-purple-50 transition-all hover:-translate-y-2 duration-300">
+                            <div class="text-4xl mb-4 text-purple-700 font-serif">創</div>
+                            <h4 class="text-xl font-bold mb-2">创新跨越</h4>
+                            <p class="text-sm text-gray-500">传承经典，勇于创新。我们紧跟时代步伐，引领装饰新潮流。</p>
+                        </div>
+                        <div class="p-8 bg-white border border-stone-100 rounded-lg hover:bg-purple-50 transition-all hover:-translate-y-2 duration-300">
+                            <div class="text-4xl mb-4 text-purple-700 font-serif">贏</div>
+                            <h4 class="text-xl font-bold mb-2">合作共赢</h4>
+                            <p class="text-sm text-gray-500">与客户共进，与员工共荣。实现价值的最大化共享。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- 案例板块 -->
+            <section id="projects" class="py-20 bg-stone-50">
+                <div class="container mx-auto px-6">
+                    <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+                        <h3 class="text-3xl font-bold section-title serif">精选案例</h3>
+                        <div class="flex space-x-2 mt-4">
+                            <button onclick="filterProjects('all')" class="filter-btn px-4 py-1 bg-purple-700 text-white rounded text-sm transition">全部</button>
+                            <button onclick="filterProjects('office')" class="filter-btn px-4 py-1 bg-white hover:bg-stone-100 rounded text-sm shadow-sm transition">商务办公</button>
+                            <button onclick="filterProjects('hotel')" class="filter-btn px-4 py-1 bg-white hover:bg-stone-100 rounded text-sm shadow-sm transition">酒店餐饮</button>
+                            <button onclick="filterProjects('home')" class="filter-btn px-4 py-1 bg-white hover:bg-stone-100 rounded text-sm shadow-sm transition">高端住宅</button>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button onclick="scrollProjectList(-1)" class="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white p-3 rounded-full shadow-lg hover:bg-purple-700 hover:text-white transition hidden md:block">◀</button>
+                        <div id="project-list" class="flex space-x-6 overflow-x-auto project-scroll-container scroll-smooth pb-6">
+                            <!-- JS 渲染 -->
+                        </div>
+                        <button onclick="scrollProjectList(1)" class="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white p-3 rounded-full shadow-lg hover:bg-purple-700 hover:text-white transition hidden md:block">▶</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 首页新闻 -->
+            <!-- <section id="news" class="py-20 bg-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h3 class="text-3xl font-bold mb-12 section-title serif">最新动态</h3>
+                    <div id="home-news-grid" class="grid md:grid-cols-3 gap-8 text-left">
+                    </div>
+                    <button onclick="showPage('news-list-page')" class="mt-12 px-8 py-2 border-2 border-purple-700 text-purple-700 font-bold hover:bg-purple-700 hover:text-white transition rounded">进入新闻中心</button>
+                </div>
+            </section> -->
+
+
+
+            <!-- 荣誉资质 -->
+            <section id="honors" class="py-24 bg-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h3 class="text-3xl font-bold mb-12 section-title serif">荣誉资质</h3>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <div class="w-64 bg-white p-4 shadow-sm border border-stone-100 hover:shadow-lg transition">
+                            <div class="aspect-[3/4] bg-stone-50 border-2 border-dashed border-gray-200 flex flex-col items-center justify-center p-4">
+                                <div class="w-16 h-16 bg-yellow-400 rounded-full mb-4 opacity-50 flex items-center justify-center text-white">★</div>
+                                <p class="text-sm font-bold text-gray-700">建筑装修装饰工程专业承包资质</p>
+                            </div>
+                        </div>
+                        <div class="w-64 bg-white p-4 shadow-sm border border-stone-100 hover:shadow-lg transition">
+                            <div class="aspect-[3/4] bg-stone-50 border-2 border-dashed border-gray-200 flex flex-col items-center justify-center p-4">
+                                <div class="w-16 h-16 bg-yellow-400 rounded-full mb-4 opacity-50 flex items-center justify-center text-white">★</div>
+                                <p class="text-sm font-bold text-gray-700">防水防暑保温工程专业承包资质</p>
+                            </div>
+                        </div>
+                        <div class="w-64 bg-white p-4 shadow-sm border border-stone-100 hover:shadow-lg transition">
+                            <div class="aspect-[3/4] bg-stone-50 border-2 border-dashed border-gray-200 flex flex-col items-center justify-center p-4">
+                                <div class="w-16 h-16 bg-yellow-400 rounded-full mb-4 opacity-50 flex items-center justify-center text-white">★</div>
+                                <p class="text-sm font-bold text-gray-700">环保工程专业承包资质</p>
+                            </div>
+                        </div>
+                        <div class="w-64 bg-white p-4 shadow-sm border border-stone-100 hover:shadow-lg transition">
+                            <div class="aspect-[3/4] bg-stone-50 border-2 border-dashed border-gray-200 flex flex-col items-center justify-center p-4">
+                                <div class="w-16 h-16 bg-yellow-400 rounded-full mb-4 opacity-50 flex items-center justify-center text-white">★</div>
+                                <p class="text-sm font-bold text-gray-700">纲结构工程专业承包资质</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section id="partners" class="py-24 bg-stone-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h3 class="text-3xl font-bold section-title serif">合作伙伴</h3>
+                        <p class="text-gray-500 mt-4 italic">信赖源于品质，合作共创未来</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                      <!--   <div class="col-span-full mb-4">
+                            <h4 class="text-purple-800 font-bold border-l-4 border-purple-700 pl-3 mb-4">重点合作单位</h4>
+                        </div> -->
+                        <script>
+                            const partnerList = [
+                                "国家机关事务管理局", "国家机关事务管理局北戴河管理处", "国家统计局机关服务局", "北京市国家安全局",
+                                "人民法院出版社有限公司", "华润工程科技有限公司", "北京房修一建筑工程有限公司", "中建一局集团有限公司",
+                                "中建投工程技术有限公司", "逐昌县人民法院", "无限极（中国）有限公司", "北京世纪金工投资有限公司",
+                                "北京西城悠米幼儿园", "北京爱康国宾门诊部有限公司", "爱康齿科医院管理有限公司", "北京爱康国宾西内门诊部有限公司",
+                                "北京坤泽爱车企业管理集团有限公司", "湖北合成建筑工程有限公司", "北京汉佑律师事务所", "北京伊喜餐饮管理有限公司",
+                                "北京鹰飞国际知识产权代理有限公司","深圳水晶石数字科技有限公司", "北京北洼路中医医院有限公司",
+                            "北京麦克联盟电梯有限公司"
+                            ];
+                            
+                            document.write(partnerList.map(name => `
+                                <div class="bg-white p-5 rounded-lg border border-stone-200 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all flex items-center group">
+                                    <div class="w-2 h-2 bg-purple-300 rounded-full mr-3 group-hover:bg-purple-700 transition-colors"></div>
+                                    <span class="text-sm font-medium text-gray-700">${name}</span>
+                                </div>
+                            `).join(''));
+                        </script>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="py-20 bg-stone-50">
+                <div class="container mx-auto px-6">
+                    <h3 class="text-3xl font-bold mb-12 section-title serif text-center block mx-auto">联系我们</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 lg:gap-10 max-w-6xl mx-auto">
+                        
+                        <div class="flex items-center space-x-6 p-8 bg-white rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
+                            <div class="flex-shrink-0 bg-purple-100 p-4 rounded-xl text-purple-700">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-xl mb-1 text-gray-900">公司地址</h4>
+                                <p class="text-gray-600 leading-relaxed">北京市丰台区南三环西路88号春岚大厦一号楼4层</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-6 p-8 bg-white rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
+                            <div class="flex-shrink-0 bg-purple-100 p-4 rounded-xl text-purple-700">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-xl mb-1 text-gray-900">服务热线</h4>
+                                <p class="text-gray-600 text-lg tracking-wider">13521859488</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            
+         </div>
+
+        <!-- [页面2] 新闻列表页 -->
+        <div id="news-list-page" class="page-content hidden py-12">
+            <div class="container mx-auto px-6">
+                <button onclick="showPage('home-page')" class="text-sm text-purple-700 mb-8 inline-flex items-center hover:underline cursor-pointer">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M15 19l-7-7 7-7"/></svg> 返回首页
+                </button>
+                <h2 class="text-4xl font-bold mb-12 serif">新闻中心</h2>
+                <div id="full-news-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                     <!-- JS 渲染 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- [页面3] 详情页 -->
+        <div id="detail-page" class="page-content hidden py-12">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <button onclick="goBack()" class="mb-8 text-purple-700 flex items-center font-bold hover:translate-x-[-4px] transition-transform">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    返回上一级
+                </button>
+                <div id="detail-content" class="page-fade">
+                    <!-- 动态渲染 -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-500 py-12">
+        <div class="container mx-auto px-6 text-center border-t border-gray-800 pt-8">
+            <p class="text-sm">大唐日盛建筑装饰工程有限公司 &copy; 2026 · 筑精品工程 创盛世辉煌</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- 静态数据 ---
+        const PROJECTS_DATA = [
+            { id: 'p1', cat: 'office', title: '华润万象办公空间', images: ['pics/hua1.png', 'pics/hua2.png','pics/hua3.png','pics/hua4.png'], desc: '以现代设计手法打造雅致办公环境，兼顾舒适与高效，塑造卓越工作体验。' },
+            { id: 'p2', cat: 'hotel', title: '亚朵轻居酒店', images: ['pics/qing1.png', 'pics/qing2.png', 'pics/qing3.png', 'pics/qing4.png','pics/qing5.png'], desc: '现代极简美学，营造典雅舒适的酒店空间。' },
+            { id: 'p3', cat: 'office', title: '爱康北京SOHO', images: ['pics/aikang1.png','pics/aikang2.png','pics/aikang3.png','pics/aikang4.png'], desc: '以现代医疗空间设计为理念，营造温馨舒适的体检环境。' },
+            { id: 'p4', cat: 'hotel', title: '悦宴餐厅', images: ['pics/yue1.png', 'pics/yue2.png'], desc: '融合餐饮空间美学与舒适用餐体验，通过灯光与材质营造温暖雅致的就餐环境' },
+            { id: 'p5', cat: 'home', title: '美式典雅家装', images: ['pics/jia1.png', 'pics/jia2.png'], desc: '融合经典美式元素与现代家居理念，营造温馨舒适、细节考究的居住环境，让生活充满自然与格调。' },
+
+        ];
+
+        // const NEWS_DATA = [
+        //     { id: 1, date: '2024-05-20', title: '大唐日盛荣获“年度最具影响力装饰品牌”', img: 'XXX', content: '我司在装饰协会年' },
+        //     { id: 2, date: '2024-05-12', title: '某五星级酒店装饰项目竣工交付', img: 'XXX', content: '历时8个月的匠心打造，某' },
+        //     { id: 3, date: '2024-04-30', title: '春季设计师趋势分享沙龙', img: 'XXX', content: '汇聚行业顶尖力量，共同探' },
+        //     { id: 4, date: '2024-04-15', title: '大唐日盛启动“质量万里行”巡检活动', img: 'XXX', content: '品质是企业的生命线' }
+        // ];
+
+        let lastPageId = 'home-page';
+        let currentSliderIndex = 0;
+
+        // --- 路由系统 ---
+        function showPage(pageId, sectionId = null) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+            
+            if (pageId === 'news-list-page') renderFullNews();
+            if (pageId !== 'detail-page') lastPageId = pageId;
+
+            if (sectionId) {
+                setTimeout(() => {
+                    const el = document.getElementById(sectionId);
+                    if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+                }, 100);
+            } else {
+                window.scrollTo({ top: 0 });
+            }
+        }
+
+        function goBack() { 
+            // showPage(lastPageId); 
+            if (lastPageId === 'home-page') {
+                // 如果是从首页点击进去的，返回时定位到项目案例 section
+                showPage('home-page', 'projects');
+                // 或者使用记录的坐标：window.scrollTo({ top: lastScrollPos, behavior: 'instant' });
+            } else {
+                showPage(lastPageId);
+            }
+
+        }
+
+        /**
+         * 修复：定义 scrollToId 函数
+         * 用于在页面内平滑滚动到指定元素
+         */
+        function scrollToId(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                window.scrollTo({ 
+                    top: el.offsetTop - 80, 
+                    behavior: 'smooth' 
+                });
+            }
+        }
+
+        // --- 渲染逻辑 ---
+        function renderHome() {
+            // 首页新闻
+            const homeNews = document.getElementById('home-news-grid');
+            if (homeNews) {
+                homeNews.innerHTML = NEWS_DATA.slice(0, 3).map(n => `
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer" onclick="openDetail('news', ${n.id})">
+                        <img src="${n.img}?q=80&w=600" class="h-44 w-full object-cover">
+                        <div class="p-5">
+                            <span class="text-purple-600 font-bold text-xs">${n.date}</span>
+                            <h4 class="text-lg font-bold mt-1 line-clamp-2">${n.title}</h4>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderProjects('all');
+        }
+
+        function renderFullNews() {
+            const newsList = document.getElementById('full-news-list');
+            if (newsList) {
+                newsList.innerHTML = NEWS_DATA.map(n => `
+                    <div class="group cursor-pointer" onclick="openDetail('news', ${n.id})">
+                        <div class="overflow-hidden rounded-xl mb-4">
+                            <img src="${n.img}?q=80&w=800" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <span class="text-purple-600 text-sm font-bold">${n.date}</span>
+                        <h3 class="text-xl font-bold mt-1 group-hover:text-purple-700 transition">${n.title}</h3>
+                        <p class="text-gray-500 mt-2 line-clamp-2 text-sm">${n.content}</p>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function renderProjects(filter = 'all') {
+            const container = document.getElementById('project-list');
+            if (container) {
+                const data = filter === 'all' ? PROJECTS_DATA : PROJECTS_DATA.filter(p => p.cat === filter);
+                container.innerHTML = data.map(p => `
+                    <div class="flex-shrink-0 w-[85%] md:w-1/3 cursor-pointer group" onclick="openDetail('project', '${p.id}')">
+                        <div class="relative overflow-hidden rounded-2xl aspect-[4/3] max-h-[300px]">
+                            <img src="${p.images[0]}?q=80&w=800" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                                <p class="text-purple-400 text-[10px] font-bold uppercase tracking-widest mb-1">${p.cat}</p>
+                                <h5 class="text-xl font-bold">${p.title}</h5>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function openDetail(type, id) {
+            // 【新增】记录点击案例时的滚动位置
+            lastScrollPos = window.scrollY;
+
+            const content = document.getElementById('detail-content');
+            if (!content) return;
+
+            if (type === 'news') {
+                const item = NEWS_DATA.find(n => n.id === id);
+                content.innerHTML = `
+                    <div class="max-w-3xl mx-auto">
+                        <p class="text-purple-600 font-bold mb-4">${item.date}</p>
+                        <h1 class="text-3xl md:text-5xl font-bold mb-8 serif">${item.title}</h1>
+                        <img src="${item.img}?q=80&w=1200" class="w-full rounded-2xl shadow-xl mb-10">
+                        <div class="text-gray-600 text-lg leading-loose space-y-6">${item.content}</div>
+                    </div>`;
+            } else {
+                const item = PROJECTS_DATA.find(p => p.id === id);
+                currentSliderIndex = 0;
+                content.innerHTML = `
+                    <div class="grid lg:grid-cols-12 gap-12">
+                        <div class="lg:col-span-8">
+                            <div class="slider-container shadow-2xl">
+                                <div class="slider-wrapper" id="slider-wrapper">
+                                    ${item.images.map(img => `<div class="slider-slide"><img src="${img}?q=80&w=1200" class="w-full aspect-video object-cover"></div>`).join('')}
+                                </div>
+                                ${item.images.length > 1 ? `
+                                <div class="absolute inset-0 flex items-center justify-between px-4 pointer-events-none">
+                                    <button onclick="moveSlider(-1)" class="pointer-events-auto bg-white/20 hover:bg-white p-3 rounded-full text-white hover:text-purple-700 transition">◀</button>
+                                    <button onclick="moveSlider(1)" class="pointer-events-auto bg-white/20 hover:bg-white p-3 rounded-full text-white hover:text-purple-700 transition">▶</button>
+                                </div>` : ''}
+                            </div>
+                        </div>
+                        <div class="lg:col-span-4 py-4">
+                            <h1 class="text-3xl font-bold mb-6 serif">${item.title}</h1>
+                            <p class="text-gray-600 leading-relaxed mb-8">${item.desc}</p>
+                            <div class="bg-stone-100 p-6 rounded-2xl">
+                                <h6 class="text-xs font-bold text-stone-400 mb-4 uppercase tracking-widest">项目参数</h6>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between"><span class="text-gray-500">类别</span><span class="font-bold">${item.cat}</span></div>
+                                    <div class="flex justify-between"><span class="text-gray-500">标准</span><span class="font-bold">精品工程</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+            showPage('detail-page');
+        }
+
+        // --- 工具函数 ---
+        function filterProjects(cat) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('bg-purple-700', 'text-white');
+                b.classList.add('bg-white');
+            });
+            event.currentTarget.classList.add('bg-purple-700', 'text-white');
+            renderProjects(cat);
+        }
+
+        function moveSlider(dir) {
+            const wrapper = document.getElementById('slider-wrapper');
+            if (!wrapper) return;
+            const total = wrapper.children.length;
+            currentSliderIndex = (currentSliderIndex + dir + total) % total;
+            wrapper.style.transform = `translateX(-${currentSliderIndex * 100}%)`;
+        }
+
+        function scrollProjectList(dir) {
+            const list = document.getElementById('project-list');
+            if (list) {
+                list.scrollBy({ left: dir * 350, behavior: 'smooth' });
+            }
+        }
+
+        window.onload = renderHome;
+    </script>
+</body>
+</html>
